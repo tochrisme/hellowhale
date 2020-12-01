@@ -20,6 +20,7 @@ pipeline {
     
       stage("Push image") {
             steps {
+                input message:"Proceed to push docker image?"
                 script {
                     docker.withRegistry('https://registry.hub.docker.com', 'dockerhub') {
                             myapp.push("latest")
